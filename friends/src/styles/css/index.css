@@ -53,8 +53,14 @@ code {
 
 .friend-card {
   height: 100%;
+  text-align: center;
 }
 
 .friend-name {
   font-family: 'Permanent Marker', cursive;
+}
+
+.portrait {
+  max-width: 100%;
+  margin-bottom: 20px;
 }

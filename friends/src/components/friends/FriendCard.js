@@ -1,7 +1,14 @@
 import React from 'react';
-import { Col, Card, CardHeader, CardBody, CardText, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
+import { Col, Card, CardHeader, CardImg, CardBody, CardText, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
 
 import { axiosWithAuth } from '../../utils';
+
+import Chandler from '../../img/friends/chandler.png';
+import Joey from '../../img/friends/joey.jpg';
+import Monica from '../../img/friends/monica.jpg';
+import Phoebe from '../../img/friends/phoebe.jpg';
+import Rachel from '../../img/friends/rachel.jpg';
+import Ross from '../../img/friends/ross.jpg';
 
 class FriendCard extends React.Component {
     state = {
@@ -61,10 +68,22 @@ class FriendCard extends React.Component {
                 <Card className='friend-card'>
                     <CardHeader>
                         <h4 className='friend-name'>{this.props.friend.name}</h4>
-                    </CardHeader>
-                    <CardBody>                        
-                        <CardText>Age: {this.props.friend.age}</CardText>
-                        <CardText>Email: {this.props.friend.email}</CardText>
+                    </CardHeader>                    
+                    <CardBody>
+                        <img
+                            className='portrait'
+                            src={
+                                this.props.friend.name.includes('Chandler') ? Chandler :
+                                this.props.friend.name.includes('Joey') ? Joey :
+                                this.props.friend.name.includes('Monica') ? Monica :
+                                this.props.friend.name.includes('Phoebe') ? Phoebe :
+                                this.props.friend.name.includes('Rachel') ? Rachel :
+                                this.props.friend.name.includes('Ross') ? Ross :
+                                'http://lorempixel.com/220/220/abstract'
+                            }
+                        />         
+                        <CardText>{this.props.friend.age} years old</CardText>
+                        <CardText>{this.props.friend.email}</CardText>
                         <Button onClick={() => this.setState({ isEditing: true })}>Edit</Button>{' '}
                         <Button color='danger' onClick={this.deleteFriend}>Delete</Button>
                     </CardBody>
@@ -102,7 +121,7 @@ class FriendCard extends React.Component {
                             />
                         </FormGroup>
                         <Button>Submit</Button>{' '}
-                        <Button color='danger' onClick={() => this.setState({ isEditing: false })}>Cancel</Button>
+                        <Button right color='danger' onClick={() => this.setState({ isEditing: false })}>Cancel</Button>
                         {' '}{this.state.isFetching && <Spinner size='sm' color='secondary' />}
                     </Form>
                 )}
