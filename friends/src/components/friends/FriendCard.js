@@ -44,6 +44,16 @@ class FriendCard extends React.Component {
             .catch(err => console.log(err));
     };
 
+    deleteFriend = () => {
+        this.setState({ isFetching: true });
+        axiosWithAuth()
+            .delete(`/friends/${this.props.friend.id}`)
+            .then(res => {
+                this.props.updateFriends(res.data);
+            })
+            .catch(err => console.log(err));
+    };
+
     render() {
         return (
             <Col className='friend-container' sm='12' md='6' lg='4'>
@@ -56,7 +66,7 @@ class FriendCard extends React.Component {
                         <CardText>Age: {this.props.friend.age}</CardText>
                         <CardText>Email: {this.props.friend.email}</CardText>
                         <Button onClick={() => this.setState({ isEditing: true })}>Edit</Button>{' '}
-                        <Button color='danger'>Delete</Button>
+                        <Button color='danger' onClick={this.deleteFriend}>Delete</Button>
                     </CardBody>
                 </Card>
                 ) : (
