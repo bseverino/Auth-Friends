@@ -46,9 +46,13 @@ code {
   align-items: stretch;
 }
 
+.friend-container {
+  margin-bottom: 50px;
+  min-height: 200px;
+}
+
 .friend-card {
   height: 100%;
-  margin-bottom: 50px;
 }
 
 .friend-name {

@@ -59,13 +59,22 @@ class FriendsList extends React.Component {
             .catch(err => console.log(err));
     };
 
+    updateFriends = payload => {
+        this.setState({
+            friends: payload
+        });
+    };
+
     render() {
         console.log(this.state.friends);
 
         return (
-            <div>
-                <Row>
-                    <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <>
+                <Row className='friends-list'>
+                    {this.state.friends.map(friend => (
+                        <FriendCard key={friend.id} friend={friend} updateFriends={this.updateFriends} />
+                    ))}
+                    <Col sm='12' md='6' lg='4'>
                         <Form onSubmit={this.addFriend}>
                             <FormGroup>
                                 <Label for='name'>Name</Label>
@@ -101,13 +110,8 @@ class FriendsList extends React.Component {
                             {' '}{this.state.isFetching && <Spinner size='sm' color='secondary' />}
                         </Form>
                     </Col>
-                </Row>
-                <Row className='friends-list'>
-                    {this.state.friends.map(friend => (
-                        <FriendCard key={friend.id} friend={friend} />
-                    ))}
-                </Row>
-            </div>
+                </Row>             
+            </>
         );
     };
 };
