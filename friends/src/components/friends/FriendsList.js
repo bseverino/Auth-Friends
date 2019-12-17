@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 import { axiosWithAuth } from '../../utils';
 
@@ -63,33 +64,43 @@ class FriendsList extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.addFriend}>
-                    <label>Name:{' '}
-                        <input
-                            type='text'
-                            name='name'
-                            value={this.state.friend.name}
-                            onChange={this.handleChange}
-                        />
-                    </label>
-                    <label>Age:{' '}
-                        <input
-                            type='number'
-                            name='age'
-                            value={this.state.friend.age}
-                            onChange={this.handleChange}
-                        />
-                    </label>
-                    <label>Email:{' '}
-                        <input
-                            type='email'
-                            name='email'
-                            value={this.state.friend.email}
-                            onChange={this.handleChange}
-                        />
-                    </label>
-                    <button>Add Friend</button>
-                </form>
+                <Row>
+                    <Col sm="12" md={{ size: 6, offset: 3 }}>
+                        <Form onSubmit={this.addFriend}>
+                            <FormGroup>
+                                <Label for='name'>Name</Label>
+                                <Input
+                                    type='text'
+                                    name='name'
+                                    id='name'
+                                    value={this.state.friend.name}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for='age'>Age</Label>
+                                <Input
+                                    type='number'
+                                    name='age'
+                                    id='age'
+                                    value={this.state.friend.age}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for='email'>Email</Label>
+                                <Input
+                                    type='email'
+                                    name='email'
+                                    id='email'
+                                    value={this.state.friend.email}
+                                    onChange={this.handleChange}
+                                />
+                            </FormGroup>
+                            <Button>Add Friend</Button>
+                        </Form>
+                    </Col>
+                </Row>
                 {this.state.friends.map(friend => (
                     <FriendCard key={friend.id} friend={friend} />
                 ))}

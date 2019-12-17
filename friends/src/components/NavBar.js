@@ -1,15 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavbarBrand, Navbar, Nav, NavItem, NavLink } from 'reactstrap';
 
-class NavBar extends React.Component {
-    render() {
-        return (
-            <div>
-                <Link to='/friends'>Friends List</Link>{' '}
-                <Link to='/'>Log In</Link>
-            </div>
-        );
-    };
+const NavBar = props => {
+    return (
+        <Navbar color='light'>
+            <NavbarBrand className='logo' onClick={() => props.history.push('/friends')}>F{' '}•{' '}R{' '}•{' '}I{' '}•{' '}E{' '}•{' '}N{' '}•{' '}D{' '}•{' '}S</NavbarBrand>
+            <Nav>
+                <NavItem>
+                    <NavLink href='#' onClick={() => props.history.push('/friends')}>Friends List</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink href='#' onClick={() => props.history.push('/')}>Log In</NavLink>
+                </NavItem>
+            </Nav>
+        </Navbar>
+    );
 };
 
 export default NavBar;

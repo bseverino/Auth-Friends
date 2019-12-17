@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 import { axiosWithAuth } from '../../utils';
 
@@ -34,26 +35,34 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.login}>
-                <label>Name:{' '}
-                    <input
-                        type='text'
-                        name='username'
-                        value={this.state.credentials.username}
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <label>Password:{' '}
-                    <input
-                        type='password'
-                        name='password'
-                        value={this.state.credentials.password}
-                        onChange={this.handleChange}
-                    />
-                </label>
-                <button>Log In</button>{' '}
-                {this.state.isFetching && <p>Logging in...</p>}
-            </form>
+            <Row>
+                <Col sm="12" md={{ size: 6, offset: 3 }}>
+                    <Form onSubmit={this.login}>
+                        <FormGroup>
+                            <Label for='username'>Username</Label>
+                            <Input
+                                type='text'
+                                name='username'
+                                id='username'
+                                value={this.state.credentials.username}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='password'>Password</Label>
+                            <Input
+                                type='password'
+                                name='password'
+                                id='password'
+                                value={this.state.credentials.password}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+                        <Button>Log In</Button>{' '}
+                        {this.state.isFetching && <p>Logging in...</p>}
+                    </Form>
+                </Col>
+            </Row>
         );
     };
 };
