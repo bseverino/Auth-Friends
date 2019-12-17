@@ -1,18 +1,27 @@
-import React from 'react';
-import { NavbarBrand, Navbar, Nav, NavItem, NavLink } from 'reactstrap';
+import React, { useState } from 'react';
+import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 
 const NavBar = props => {
-    return (
-        <Navbar color='light'>
-            <NavbarBrand className='logo' onClick={() => props.history.push('/friends')}>F{' '}•{' '}R{' '}•{' '}I{' '}•{' '}E{' '}•{' '}N{' '}•{' '}D{' '}•{' '}S</NavbarBrand>
-            <Nav>
-                <NavItem>
-                    <NavLink href='#' onClick={() => props.history.push('/friends')}>Friends List</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href='#' onClick={() => props.history.push('/')}>Log In</NavLink>
-                </NavItem>
-            </Nav>
+    const [collapsed, setCollapsed] = useState(true);
+
+    const toggleNavbar = () => setCollapsed(!collapsed);
+
+    return (        
+        <Navbar color='dark' dark>
+            <NavbarBrand className='logo mr-auto' onClick={() => props.history.push('/friends')}>
+                F{' '}<span className='red'>•</span>{' '}R{' '}<span className='yellow'>•</span>{' '}I{' '}<span className='blue'>•</span>{' '}E{' '}<span className='red'>•</span>{' '}N{' '}<span className='yellow'>•</span>{' '}D{' '}<span className='blue'>•</span>{' '}S
+            </NavbarBrand>
+            <NavbarToggler onClick={toggleNavbar} className='mr-2' />
+            <Collapse isOpen={!collapsed} navbar>
+                <Nav navbar>
+                    <NavItem>
+                        <NavLink href='#' onClick={() => props.history.push('/friends')}>Friends List</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href='#' onClick={() => props.history.push('/')}>Log In</NavLink>
+                    </NavItem>
+                </Nav>
+            </Collapse>
         </Navbar>
     );
 };

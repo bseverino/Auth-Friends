@@ -14,11 +14,43 @@ code {
     monospace;
 }
 
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .logo {
   font-family: 'Permanent Marker', cursive;
   font-size: 2rem;
 }
 
+.red {
+  color: #B22222;
+}
+
+.yellow {
+  color: #FFD700;
+}
+
+.blue {
+  color: #4169E1;
+}
+
 .logo:hover {
   cursor: pointer;
+}
+
+.friends-list {
+  margin-top: 50px;
+  display: flex;
+  align-items: stretch;
+}
+
+.friend-card {
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.friend-name {
+  font-family: 'Permanent Marker', cursive;
 }

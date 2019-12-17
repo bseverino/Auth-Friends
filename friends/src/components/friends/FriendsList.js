@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Row, Col, Form, FormGroup, Label, Input, Button, Spinner } from 'reactstrap';
 
 import { axiosWithAuth } from '../../utils';
 
@@ -98,12 +98,15 @@ class FriendsList extends React.Component {
                                 />
                             </FormGroup>
                             <Button>Add Friend</Button>
+                            {' '}{this.state.isFetching && <Spinner size='sm' color='secondary' />}
                         </Form>
                     </Col>
                 </Row>
-                {this.state.friends.map(friend => (
-                    <FriendCard key={friend.id} friend={friend} />
-                ))}
+                <Row className='friends-list'>
+                    {this.state.friends.map(friend => (
+                        <FriendCard key={friend.id} friend={friend} />
+                    ))}
+                </Row>
             </div>
         );
     };

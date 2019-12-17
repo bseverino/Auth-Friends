@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Row, Col, Form, FormGroup, Label, Input, Button, Spinner } from 'reactstrap';
 
 import { axiosWithAuth } from '../../utils';
 
@@ -58,8 +58,8 @@ class Login extends React.Component {
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
-                        <Button>Log In</Button>{' '}
-                        {this.state.isFetching && <p>Logging in...</p>}
+                        <Button>Log In</Button>
+                        {' '}{this.state.isFetching && <Spinner size='sm' color='secondary' />}
                     </Form>
                 </Col>
             </Row>
