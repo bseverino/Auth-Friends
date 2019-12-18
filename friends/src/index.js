@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import './styles/css/index.css';
 import App from './components';
 import * as serviceWorker from './serviceWorker';

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Card, CardHeader, CardImg, CardBody, CardText, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
+import { confirmAlert } from 'react-confirm-alert';
+import { Col, Card, CardHeader, CardBody, CardText, Button, Form, FormGroup, Label, Input, Spinner } from 'reactstrap';
 
 import { axiosWithAuth } from '../../utils';
 
@@ -51,14 +52,28 @@ class FriendCard extends React.Component {
             .catch(err => console.log(err));
     };
 
-    deleteFriend = () => {
-        this.setState({ isFetching: true });
-        axiosWithAuth()
-            .delete(`/friends/${this.props.friend.id}`)
-            .then(res => {
-                this.props.updateFriends(res.data);
-            })
-            .catch(err => console.log(err));
+    deleteFriend = name => {
+        confirmAlert({
+            title: 'Warning',
+            message: `Are you sure you wish to delete ${name}?`,
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        this.setState({ isFetching: true });
+                        axiosWithAuth()
+                            .delete(`/friends/${this.props.friend.id}`)
+                            .then(res => {
+                                this.props.updateFriends(res.data);
+                            })
+                            .catch(err => console.log(err));
+                    }
+                },
+                {
+                    label: 'No'
+                }
+            ]
+        });
     };
 
     render() {
@@ -85,7 +100,7 @@ class FriendCard extends React.Component {
                         <CardText>{this.props.friend.age} years old</CardText>
                         <CardText>{this.props.friend.email}</CardText>
                         <Button onClick={() => this.setState({ isEditing: true })}>Edit</Button>{' '}
-                        <Button color='danger' onClick={this.deleteFriend}>Delete</Button>
+                        <Button color='danger' onClick={() => this.deleteFriend(this.props.friend.name)}>Delete</Button>
                     </CardBody>
                 </Card>
                 ) : (
