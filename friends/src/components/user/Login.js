@@ -36,8 +36,9 @@ class Login extends React.Component {
     render() {
         return (
             <Row>
-                <Col sm="12" md={{ size: 6, offset: 3 }}>
-                    <Form onSubmit={this.login}>
+                <Col sm="12" md={{ size: 4, offset: 4 }}>
+                    <Form className='log-in' onSubmit={this.login}>
+                        <legend>Log In</legend>
                         <FormGroup>
                             <Label for='username'>Username</Label>
                             <Input
@@ -58,7 +59,7 @@ class Login extends React.Component {
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
-                        <Button>Log In</Button>
+                        <Button>Submit</Button>
                         {' '}{this.state.isFetching && <Spinner size='sm' color='secondary' />}
                     </Form>
                 </Col>

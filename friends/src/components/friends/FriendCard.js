@@ -78,7 +78,7 @@ class FriendCard extends React.Component {
 
     render() {
         return (
-            <Col className='friend-container' sm='12' md='6' lg='4'>
+            <Col className='friend-container' xs='12' sm='6' md='4' lg='3'>
                 {!this.state.isEditing ? (
                 <Card className='friend-card'>
                     <CardHeader>

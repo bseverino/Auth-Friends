@@ -14,8 +14,15 @@ code {
     monospace;
 }
 
-.container {
-  margin-top: 50px;
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.app-container {
+  padding-top: 100px;
   margin-bottom: 50px;
 }
 
@@ -40,8 +47,13 @@ code {
   cursor: pointer;
 }
 
+.log-in {
+  margin-top: 50px;
+}
+
 .friends-list {
   margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
   align-items: stretch;
 }

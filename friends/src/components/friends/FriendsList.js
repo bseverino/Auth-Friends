@@ -74,7 +74,7 @@ class FriendsList extends React.Component {
                     {this.state.friends.map(friend => (
                         <FriendCard key={friend.id} friend={friend} updateFriends={this.updateFriends} />
                     ))}
-                    <Col sm='12' md='6' lg='4'>
+                    <Col xs='12' sm='6' md='4' lg='3'>
                         <Form onSubmit={this.addFriend}>
                             <FormGroup>
                                 <Label for='name'>Name</Label>
