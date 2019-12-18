@@ -6,6 +6,11 @@ const NavBar = props => {
 
     const toggleNavbar = () => setCollapsed(!collapsed);
 
+    const logout = () => {
+        localStorage.clear('token');
+        props.history.push('/');
+    };
+
     return (        
         <Navbar className='nav-bar' color='dark' dark>
             <NavbarBrand className='logo mr-auto' onClick={() => props.history.push('/friends')}>
@@ -21,10 +26,20 @@ const NavBar = props => {
                             }}>Friends List</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href='#' onClick={() => {
-                                props.history.push('/');
-                                toggleNavbar();
-                            }}>Log In</NavLink>
+                        {localStorage.getItem('token') ? (
+                                <NavLink href='#' onClick={() => {
+                                    logout();
+                                    toggleNavbar();
+                                }}>
+                                    Log Out
+                                </NavLink>
+                            ) : (
+                                <NavLink href='#' onClick={() => {
+                                        props.history.push('/');
+                                        toggleNavbar();
+                                    }}>Log In
+                                </NavLink>
+                        )}
                     </NavItem>
                 </Nav>
             </Collapse>
