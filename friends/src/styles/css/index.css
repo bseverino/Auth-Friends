@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.app-container {
+  padding-top: 80px;
+  margin-bottom: 50px;
+}
+
+.logo {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+}
+
+.red {
+  color: #B22222;
+}
+
+.yellow {
+  color: #FFD700;
+}
+
+.blue {
+  color: #4169E1;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.log-in {
+  margin-top: 50px;
+}
+
+.spinner {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.friends-list {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: stretch;
+}
+
+.friend-container {
+  margin-bottom: 50px;
+  min-height: 200px;
+}
+
+.friend-card {
+  height: 100%;
+  text-align: center;
+}
+
+.friend-name {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.portrait {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
