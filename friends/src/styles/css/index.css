@@ -22,7 +22,7 @@ code {
 }
 
 .app-container {
-  padding-top: 100px;
+  padding-top: 80px;
   margin-bottom: 50px;
 }
 
@@ -51,6 +51,11 @@ code {
   margin-top: 50px;
 }
 
+.spinner {
+  margin-top: 50px;
+  text-align: center;
+}
+
 .friends-list {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -75,4 +80,5 @@ code {
 .portrait {
   max-width: 100%;
   margin-bottom: 20px;
+  border-radius: 5px;
 }

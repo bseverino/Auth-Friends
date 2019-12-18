@@ -7,7 +7,7 @@ import FriendCard from './FriendCard';
 
 class FriendsList extends React.Component {
     state = {
-        friends: [],
+        friends: null,
         friend: {
             name: '',
             age: '',
@@ -70,8 +70,9 @@ class FriendsList extends React.Component {
 
         return (
             <>
-                <Row className='friends-list'>
-                    {this.state.friends.map(friend => (
+                {!this.state.friends && <Row><Col className='spinner'><Spinner /></Col></Row>}
+                <Row className='friends-list'>                    
+                    {this.state.friends && this.state.friends.map(friend => (
                         <FriendCard key={friend.id} friend={friend} updateFriends={this.updateFriends} />
                     ))}
                     <Col xs='12' sm='6' md='4' lg='3'>

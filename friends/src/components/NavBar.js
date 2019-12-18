@@ -15,10 +15,16 @@ const NavBar = props => {
             <Collapse isOpen={!collapsed} navbar>
                 <Nav navbar>
                     <NavItem>
-                        <NavLink href='#' onClick={() => props.history.push('/friends')}>Friends List</NavLink>
+                        <NavLink href='#' onClick={() => {
+                                props.history.push('/friends')
+                                toggleNavbar();
+                            }}>Friends List</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href='#' onClick={() => props.history.push('/')}>Log In</NavLink>
+                        <NavLink href='#' onClick={() => {
+                                props.history.push('/');
+                                toggleNavbar();
+                            }}>Log In</NavLink>
                     </NavItem>
                 </Nav>
             </Collapse>
